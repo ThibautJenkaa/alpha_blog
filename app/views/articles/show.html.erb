@@ -1,3 +1,7 @@
 <h1>Showing articles details</h1>
 <p>Title: <strong></strong><%= @article.title %></p>
 <p>Descritpion: <%= @article.description %></p>
+
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Voulez vous vraiment supprimer cet article ?"} %>
+<%= link_to 'Back', articles_path %>
