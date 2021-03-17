@@ -1,0 +1,27 @@
+<% if @user.errors.any? %>
+    <h2>Certaines erreurs empêchent la création de votre compte :</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+    <p>
+        <%= f.label :username %><br/>
+        <%= f.text_field :username, placeholder: "Entrez un pseudo" %>
+    </p>
+    <p>
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, placeholder: "Entrez un email" %>
+    </p>
+    <p>
+        <%= f.label :password %><br/>
+        <%= f.password_field :password, placeholder: "Entrez un mot de passe" %>
+    </p>
+    <p>
+        <%= f.submit "S'inscrire" %>
+    </p>
+    <%= link_to 'Retourner à l\accueil', root_path %>
+<% end %>

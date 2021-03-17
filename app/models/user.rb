@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
   has_many :articles
   validates :username, 
   presence: true, 
@@ -19,4 +20,5 @@ class User < ApplicationRecord
   }, 
   uniqueness: { case_sensitive: false },
   format: { with: VALID_EMAIL_REGEX, message: "L'email saisi n'est pas valide" }
+  has_secure_password
 end
