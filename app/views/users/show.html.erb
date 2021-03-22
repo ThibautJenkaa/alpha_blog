@@ -3,6 +3,7 @@
 
 
 <td><%= link_to 'Modifie ton profil', edit_user_path(@user) if (logged_in? && @user == current_user) %></td>
+<td><%= link_to 'Supprime ton compte', user_path(@user), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer votre compte ?" } if (logged_in? && @user == current_user) %></td>
 <h2>Articles de <%= @user.username %></h2>
 <div class="digg_pagination">
     <%= will_paginate @articles, :container => false %>
