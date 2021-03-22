@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user
+    if current_user != @article.user && !current_user.admin?
       flash[:alert] = "Vous ne pouvez éditer ou supprimer un aurticle qui ne vous appartient pas"
       redirect_to @article
     end
