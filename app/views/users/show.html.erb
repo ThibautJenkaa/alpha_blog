@@ -1,0 +1,10 @@
+<h1>Profil de <%= @user.username %></h1>
+<%= gravatar_for @user %>
+
+
+<td><%= link_to 'Modifie ton profil', edit_user_path(@user) if (logged_in? && @user == current_user) %></td>
+<h2>Articles de <%= @user.username %></h2>
+<div class="digg_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
+<%= render 'articles/article' %>

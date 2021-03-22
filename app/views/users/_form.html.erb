@@ -21,7 +21,7 @@
         <%= f.password_field :password, placeholder: "Entrez un mot de passe" %>
     </p>
     <p>
-        <%= f.submit "S'inscrire" %>
+        <%= f.submit(@user.new_record? ? "S'inscrire" : "Modifier l'utilisateur")  %>
     </p>
     <%= link_to 'Retourner à l\accueil', root_path %>
 <% end %>
