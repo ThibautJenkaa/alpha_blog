@@ -8,6 +8,7 @@
     <thead>
         <tr>
             <th>Nom</th>
+            <th>Nb article</th>
             <th colspan="1">Actions</th>
         </tr>
     </thead>
@@ -15,6 +16,7 @@
     <% @categories.each do |category| %>
         <tr>
             <td><%= link_to category.name, category_path(category) %></td>
+            <td><%= category.articles.count %></td>
         </tr>
     <% end %>
     </tbody>

@@ -1,2 +1,11 @@
 <h1>Catégorie: <%= @category.name %></h1>
 
+<% if logged_in? && current_user.admin? %>
+    <%= link_to "Modifier le nom de la catégorie", edit_category_path(@category) %>
+<% end %>
+
+<h2>Articles relié à la catégorie '<%= @category.name %>'</h2>
+<div class="digg_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
+<%= render 'articles/article' %>

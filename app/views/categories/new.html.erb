@@ -1,20 +1,3 @@
 <h1>Créer une nouvelle catégorie</h1>
 
-<% if @category.errors.any? %>
-    <h2>Certaines erreurs empêchent la création de la catégorie :</h2>
-    <ul class="liste_erreurs_categorie">
-    <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-    </ul>
-<% end %>
-
-<%= form_with(model: @category, local: true) do |f| %>
-    <p>
-        <%= f.label :name %><br/>
-        <%= f.text_field :name, placeholder: "Entrez un nom de catégorie" %>
-    </p>
-        <%= f.submit("Créer la nouvelle catégorie") %>
-    </p>
-    <%= link_to 'Retourner à l\accueil', root_path %>
-<% end %>
+<%= render 'form' %>
