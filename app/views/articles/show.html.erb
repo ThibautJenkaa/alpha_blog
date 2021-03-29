@@ -3,6 +3,12 @@
 <p>Descritpion: <%= @article.description %></p>
 <td>écrit par <%= link_to @article.user.username, user_path(@article.user) %></td>
 <br/>
+<br/>
+<% if @article.categories.any? %>
+<%= render @article.categories %>
+<% end %>
+<br/>
+<br/>
 <%= link_to 'Edit', edit_article_path(@article)  if (logged_in? && @article.user == current_user) %>
 <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Voulez vous vraiment supprimer cet article ?"}  if (logged_in? && @article.user == current_user) %>
 <%= link_to 'Back', articles_path %>

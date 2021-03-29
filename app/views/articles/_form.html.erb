@@ -17,6 +17,10 @@
         <%= f.text_area :description %>
     </p>
     <p>
+        <%= f.label :category %><br/>
+        <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Choissisez une ou plusieurs categories" }, { multiple: true, include_blank: true }) %>
+    </p>
+    <p>
         <%= f.submit %>
     </p>
 <% end %>
